@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">UniversityBase1</string>
+    <string-array name="specialties">
+        <item>Computer Science</item>
+        <item>Business Administration</item>
+        <item>Engineering</item>
+        <item>Medicine</item>
+        <item>Law</item>
+        <item>Economics</item>
+        <item>Architecture</item>
+        <item>Arts</item>
+        <item>Physics</item>
+        <item>Biology</item>
+    </string-array>
+    <string name="select_specialty">Выберите специальность</string>
+</resources>

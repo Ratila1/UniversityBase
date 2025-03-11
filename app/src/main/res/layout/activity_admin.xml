@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/dark_green"
+    android:padding="16dp">
+
+    <!-- Таблица для отображения университетов -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+            <!-- Заголовок таблицы -->
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/listDivider"
+                android:padding="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID"
+                    android:textStyle="bold"
+                    android:padding="5dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Название"
+                    android:textStyle="bold"
+                    android:padding="5dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Город"
+                    android:textStyle="bold"
+                    android:padding="5dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Описание"
+                    android:textStyle="bold"
+                    android:padding="5dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Контакты"
+                    android:textStyle="bold"
+                    android:padding="5dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Сайт"
+                    android:textStyle="bold"
+                    android:padding="5dp" />
+            </TableRow>
+            <!-- Динамически добавляемые строки с данными университетов -->
+        </TableLayout>
+    </ScrollView>
+
+    <!-- Форма для добавления нового университета (внутри ScrollView) -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="16dp">
+
+            <EditText
+                android:id="@+id/nameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Название" />
+
+            <EditText
+                android:id="@+id/cityEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Город" />
+
+            <EditText
+                android:id="@+id/descriptionEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Описание" />
+
+            <EditText
+                android:id="@+id/contactsEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Контакты" />
+
+            <EditText
+                android:id="@+id/websiteEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Сайт" />
+
+            <!-- Поле для ввода URL картинки -->
+            <EditText
+                android:id="@+id/imageUrlEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="URL картинки" />
+
+            <!-- Выбор специальностей через Spinner -->
+            <Spinner
+                android:id="@+id/specialtySpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/specialties"
+                android:prompt="@string/select_specialty" />
+
+            <!-- Отображение выбранных специальностей -->
+            <TextView
+                android:id="@+id/selectedSpecialtiesTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Выбранные специальности:"
+                android:textStyle="bold"
+                android:padding="5dp" />
+
+            <!-- Контейнер для отображения выбранных специальностей -->
+            <LinearLayout
+                android:id="@+id/selectedSpecialtiesContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp" />
+
+            <!-- Кнопка для добавления выбранной специальности -->
+            <Button
+                android:id="@+id/addSpecialtyButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:animation="@anim/fade_in"
+                android:background="@drawable/custom_button"
+                android:stateListAnimator="@anim/button_press_anim"
+                android:text="Добавить специальность" />
+
+            <!-- Кнопки управления -->
+            <Button
+                android:id="@+id/addButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Добавить в базу ->"
+                android:background="@drawable/custom_button"
+                android:stateListAnimator="@anim/button_press_anim"
+                android:animation="@anim/fade_in" />
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Сохранить ->"
+                android:background="@drawable/custom_button"
+                android:stateListAnimator="@anim/button_press_anim"
+                android:animation="@anim/fade_in" />
+
+            <Button
+                android:id="@+id/deleteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Удалить из базы ->"
+                android:background="@drawable/custom_button"
+                android:stateListAnimator="@anim/button_press_anim"
+                android:animation="@anim/fade_in" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
